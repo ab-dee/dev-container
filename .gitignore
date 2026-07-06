@@ -1,0 +1,9 @@
+.vscode/
+.claude/
+__pycache__/
+build/
+install/
+log/
+workspace/
+.env
+.DS_Store

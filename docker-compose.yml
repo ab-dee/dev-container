@@ -1,0 +1,20 @@
+services:
+  devcontainer:
+    image: debian:bookworm-slim
+    container_name: devcontainer
+    volumes:
+      - ./workspace:/workspace:cached
+      - .:/opt/repo:ro
+      - devcontainer-home:/root
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ~/.Xauthority:/root/.Xauthority:rw
+    environment:
+      - DISPLAY=host.docker.internal:0
+      - XAUTHORITY=/root/.Xauthority
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    command: sleep infinity
+
+volumes:
+  devcontainer-home:
